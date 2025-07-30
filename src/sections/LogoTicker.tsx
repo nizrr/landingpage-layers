@@ -46,11 +46,11 @@ const logos = [
 export default function LogoTicker() {
    return (
       <section className="py-24 overflow-x-clip">
-         <div className="container">
+         <div className="container mx-auto max-w-6xl">
             <p className="text-white/50 text-center text-xl">
                Already chosen by these market leaders
             </p>
-            <div className="overflow-hidden mt-12 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="overflow-hidden mt-12 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
                <div className="flex gap-24 pr-24">
                   {logos.map((logo, index) => (
                      <Image

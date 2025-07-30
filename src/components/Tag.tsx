@@ -7,7 +7,7 @@ export default function Tag(props: HTMLAttributes<HTMLDivElement>) {
    return (
       <div
          className={cn(
-            "font-medium flex justify-center items-center gap-2 mx-auto text-lime-400 text-xs border border-lime-400 rounded-full px-4 py-1 w-fit uppercase ",
+            "font-medium flex justify-center items-center gap-2 mx-auto text-lime-400 text-xs border border-lime-400 rounded-full px-4 py-2 w-fit uppercase ",
             className
          )}>
          <Star

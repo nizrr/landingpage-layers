@@ -7,7 +7,7 @@ export default function Introducing() {
       "You're racing to create exceptional work, but traditional design tools slow you down with unnecessary complexity and steep learning curves."
    return (
       <section className="py-24 px-5 lg:py-40">
-         <div className="container mx-auto">
+         <div className="container mx-auto max-w-6xl">
             <div className="flex justify-center">
                <Tag>Introducing Layers</Tag>
             </div>
