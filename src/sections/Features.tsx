@@ -1,12 +1,14 @@
 import Image from "next/image"
 import React from "react"
-import avatarAshwinImage from "@/assets/images/avatar-ashwin-santiago.jpg"
-import avatarFlorenceImage from "@/assets/images/avatar-florence-shaw.jpg"
-import avatarLulaImage from "@/assets/images/avatar-lula-meyers.jpg"
+import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg"
+import avatar2 from "@/assets/images/avatar-florence-shaw.jpg"
+import avatar3 from "@/assets/images/avatar-lula-meyers.jpg"
+import avatar4 from "@/assets/images/avatar-owen-garcia.jpg"
 import Tag from "@/components/Tag"
 import FeatureCard from "@/components/FeatureCard"
 import Avatar from "@/components/Avatar"
 import Key from "@/components/Key"
+
 const features = [
    "Asset Library",
    "Code Preview",
@@ -29,31 +31,35 @@ export default function Features() {
                <FeatureCard
                   title="Real-time Collaboration"
                   description="Work together seamlessly with contlict-tree team editing"
-                  className="md:col-span-2 lg:col-span-1">
+                  className="md:col-span-2 lg:col-span-1 group">
                   <div className="flex aspect-video items-center justify-center">
                      <Avatar className="z-40">
                         <Image
-                           src={avatarAshwinImage}
+                           src={avatar1}
                            alt="Ashwin Santiago"
                            className="rounded-full"
                         />
                      </Avatar>
                      <Avatar className="-ml-6 border-indigo-500 z-30">
                         <Image
-                           src={avatarFlorenceImage}
+                           src={avatar2}
                            alt="Florence Shaw"
                            className="rounded-full"
                         />
                      </Avatar>
                      <Avatar className="-ml-6 border-amber-500 z-20">
                         <Image
-                           src={avatarLulaImage}
+                           src={avatar3}
                            alt="Lula Meyers"
                            className="rounded-full"
                         />
                      </Avatar>
                      <Avatar className="-ml-6 border-transparent z-10">
-                        <div className="size-full bg-neutral-700 rounded-full inline-flex items-center justify-center gap-1">
+                        <div className="size-full bg-neutral-700 rounded-full inline-flex items-center justify-center gap-1 relative">
+                           <Image
+                              src={avatar4}
+                              alt=""
+                              className="rounded-full absolute size-full opacity-0 group-hover:opacity-100"></Image>
                            {Array.from({ length: 3 }).map((_, index) => (
                               <span
                                  className="size-1.5 rounded-full bg-white inline-flex"

@@ -104,6 +104,7 @@ export default function Hero() {
                   type="email"
                   placeholder="Enter your email"
                   autoComplete="off"
+                  
                   className="bg-transparent px-4 w-full active:border-0 focus:border-0 focus:outline-none focus:ring-0 focus:bg-transparent text-white/50 placeholder:text-white/50 md:flex-1"
                />
                <Button
