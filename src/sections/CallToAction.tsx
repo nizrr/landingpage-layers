@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react"
 
 export default function CallToAction() {
    const [isHovered, setIsHovered] = useState(false)
-   const animation = useRef<AnimationPlaybackControls>(null)
    const [scope, animate] = useAnimate()
+   const animation = useRef<AnimationPlaybackControls>(null)
    useEffect(() => {
       animation.current = animate(
          scope.current,
          { x: "-50%" },
-         { duration: 15, repeat: Infinity, ease: "linear" }
+         { duration: 30, repeat: Infinity, ease: "linear" }
       )
    })
    useEffect(() => {
@@ -30,7 +30,7 @@ export default function CallToAction() {
                onMouseEnter={() => setIsHovered(true)}
                onMouseLeave={() => setIsHovered(false)}
                className="flex flex-none gap-16 pr-16 text-7xl md:text-8xl font-medium group cursor-pointer">
-               {Array.from({ length: 5 }).map((_, index) => (
+               {Array.from({ length: 10 }).map((_, index) => (
                   <div
                      key={index}
                      className="flex items-center gap-16">

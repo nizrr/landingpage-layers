@@ -94,9 +94,15 @@ export default function Hero() {
             </div>
             <motion.div
                animate={{ opacity: [0, 1] }}
-               className="text-6xl md:text-7xl md:max-w-3xl xl:max-w-5xl xl:text-8xl font-medium text-center mt-6 mx-auto max-w-4xl inline-block">
-               Impactful design, created
-               <WordRotate words={["quickly", "easily", "effortlessly"]}></WordRotate>
+               className="text-6xl md:text-7xl md:max-w-3xl xl:max-w-5xl xl:text-8xl font-medium text-center mt-6 mx-auto max-w-4xl">
+               Impactful design,{" "}
+               <span className="inline-flex items-center">
+                  created&nbsp;
+                  <WordRotate
+                     className="py-3 text-lime-400"
+                     duration={3000}
+                     words={["effortlessly", "seamlessly", "gracefully"]}></WordRotate>
+               </span>
             </motion.div>
             <TextAnimate
                animation="slideLeft"

@@ -26,7 +26,7 @@ export default function Introducing() {
    return (
       <section className="py-20 px-5 lg:py-28">
          <div className="container mx-auto max-w-6xl">
-            <div className="sticky top-30 lg:top-40 ">
+            <div className="sticky top-30 lg:top-40 xl:top-70 " style={{ }}>
                <div className="flex justify-center">
                   <Tag>Introducing Layers</Tag>
                </div>

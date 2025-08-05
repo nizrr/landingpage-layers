@@ -1,5 +1,5 @@
+"use client"
 import Image from "next/image"
-import React from "react"
 import avatar1 from "@/assets/images/avatar-ashwin-santiago.jpg"
 import avatar2 from "@/assets/images/avatar-florence-shaw.jpg"
 import avatar3 from "@/assets/images/avatar-lula-meyers.jpg"
@@ -8,7 +8,8 @@ import Tag from "@/components/Tag"
 import FeatureCard from "@/components/FeatureCard"
 import Avatar from "@/components/Avatar"
 import Key from "@/components/Key"
-
+import { SparklesText } from "@/components/magicui/sparkles-text"
+import { motion } from "motion/react"
 const features = [
    "Asset Library",
    "Code Preview",
@@ -22,12 +23,18 @@ export default function Features() {
    return (
       <section className="py-24 px-4">
          <div className="container mx-auto max-w-6xl">
-            <Tag>Features</Tag>
-            <h1 className="text-7xl font-medium text-center mt-6 mx-auto max-w-2xl">
-               Where power meets <span className="text-lime-400">simplicity</span>
-            </h1>
+            <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 0.6 }}>
+               <Tag>Features</Tag>
+               <h1 className="text-7xl font-medium text-center mt-6 mx-auto max-w-2xl">
+                  Where power meets{" "}
+                  <SparklesText className="text-lime-400">simplicity</SparklesText>
+               </h1>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-8 mt-12 justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-3 gap-8 mt-20 justify-center">
                <FeatureCard
                   title="Real-time Collaboration"
                   description="Work together seamlessly with contlict-tree team editing"
