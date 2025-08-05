@@ -1,5 +1,8 @@
+"use client"
 import Tag from "@/components/Tag"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
+import { motion, AnimatePresence } from "motion/react"
 const faqs = [
    {
       question: "How is Layers different from other design tools?",
@@ -28,7 +31,7 @@ const faqs = [
    },
 ]
 export default function Faqs() {
-   const selectedIndex = 0
+   const [selectedIndex, setSelectedIndex] = useState(0)
    return (
       <section className="py-24 px-4">
          <div className="container mx-auto max-w-xl">
@@ -40,7 +43,8 @@ export default function Faqs() {
                {faqs.map((faq, index) => (
                   <div
                      key={faq.question}
-                     className=" bg-neutral-900 p-6 rounded-2xl border border-white/10">
+                     className=" bg-neutral-900 p-6 rounded-2xl border border-white/10 cursor-pointer transition duration-500 ease-in-out"
+                     onClick={() => setSelectedIndex(index)}>
                      <div className="flex justify-between items-center">
                         <h3 className="font-medium">{faq.question}</h3>
                         <svg
@@ -54,7 +58,7 @@ export default function Faqs() {
                            strokeLinecap="round"
                            strokeLinejoin="round"
                            className={cn(
-                              "feather feather-plus text-lime-400",
+                              "feather feather-plus text-lime-400 transition duration-500 ease-in-out",
                               index === selectedIndex && "rotate-45"
                            )}>
                            <line
@@ -69,9 +73,17 @@ export default function Faqs() {
                               y2="12"></line>
                         </svg>
                      </div>
-                     <div className={cn("mt-6", index !== selectedIndex && "hidden")}>
-                        <p className=" text-white/50 text-justify">{faq.answer}</p>
-                     </div>
+                     <AnimatePresence>
+                        {index === selectedIndex && (
+                           <motion.div
+                              initial={{ height: 0, marginTop: 0 }}
+                              animate={{ height: "auto", marginTop: 24 }}
+                              exit={{ height: 0, marginTop: 0 }}
+                              className={cn("overflow-hidden")}>
+                              <p className=" text-white/50 text-justify">{faq.answer}</p>
+                           </motion.div>
+                        )}
+                     </AnimatePresence>
                   </div>
                ))}
             </div>

@@ -61,9 +61,9 @@ export default function LogoTicker() {
                   className="flex flex-none gap-24 pr-24">
                   {Array.from({ length: 2 }).map((_, index) => (
                      <Fragment key={index}>
-                        {logos.map((logo, index) => (
+                        {logos.map((logo, indexLogo) => (
                            <Image
-                              key={index}
+                              key={indexLogo}
                               src={logo.src}
                               alt={logo.alt}
                            />

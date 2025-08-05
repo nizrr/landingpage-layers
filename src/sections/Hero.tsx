@@ -8,6 +8,8 @@ import LogoTicker from "./LogoTicker"
 import cursorYourImage from "@/assets/images/cursor-you.svg"
 import { motion, useAnimate } from "motion/react"
 import { useEffect } from "react"
+import { TextAnimate } from "@/components/magicui/text-animate"
+import { WordRotate } from "@/components/magicui/word-rotate"
 
 export default function Hero() {
    const [leftDesignScope, leftDesignAnimate] = useAnimate()
@@ -90,13 +92,21 @@ export default function Hero() {
                   $7.5M seed round raised
                </div>
             </div>
-            <h1 className="text-6xl md:text-7xl md:max-w-3xl xl:max-w-5xl xl:text-8xl font-medium text-center mt-6 mx-auto max-w-4xl">
-               Impactful design, created effortlessly
-            </h1>
-            <p className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
+            <motion.div
+               animate={{ opacity: [0, 1] }}
+               className="text-6xl md:text-7xl md:max-w-3xl xl:max-w-5xl xl:text-8xl font-medium text-center mt-6 mx-auto max-w-4xl inline-block">
+               Impactful design, created
+               <WordRotate words={["quickly", "easily", "effortlessly"]}></WordRotate>
+            </motion.div>
+            <TextAnimate
+               animation="slideLeft"
+               by="word"
+               duration={1.5}
+               delay={1}
+               className="text-center text-xl text-white/50 mt-8 max-w-2xl mx-auto">
                Design tools shouldn&apos;t slow you down. Layers combines powerful features with an
                intuitive interface that keeps you in your creative flow
-            </p>
+            </TextAnimate>
             <form
                action=""
                className="flex justify-between border border-white/15 rounded-full p-2 px-4 mt-8 gap-4 mx-auto max-w-2xl">
@@ -104,7 +114,6 @@ export default function Hero() {
                   type="email"
                   placeholder="Enter your email"
                   autoComplete="off"
-                  
                   className="bg-transparent px-4 w-full active:border-0 focus:border-0 focus:outline-none focus:ring-0 focus:bg-transparent text-white/50 placeholder:text-white/50 md:flex-1"
                />
                <Button

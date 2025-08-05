@@ -1,7 +1,7 @@
 "use client"
 import Tag from "@/components/Tag"
 import { cn } from "@/lib/utils"
-import { useMotionValueEvent, useScroll, useTransform } from "motion/react"
+import { useScroll, useTransform } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 
 const text =
@@ -22,10 +22,6 @@ export default function Introducing() {
          setCurrentWord(Math.floor(latest))
       })
    }, [wordIndex])
-
-   useMotionValueEvent(scrollYProgress, "change", latest => {
-      console.log(latest)
-   })
 
    return (
       <section className="py-20 px-5 lg:py-28">
