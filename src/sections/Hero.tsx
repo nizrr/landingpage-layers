@@ -24,8 +24,13 @@ export default function Hero() {
       ])
       leftPointerAnimate([
          [leftPointerScope.current, { opacity: 1 }, { duration: 0.6 }],
-         [leftPointerScope.current, { y: 0, x: -100 }, { duration: 0.6, ease: "easeInOut" }],
+         [leftPointerScope.current, { x: -100, y: 0 }, { duration: 0.6, ease: "easeInOut" }],
          [leftPointerScope.current, { x: 0, y: [0, 20, 10] }, { duration: 0.6, ease: "easeInOut" }],
+         [
+            leftPointerScope.current,
+            { x: [0, 10, -10, 0], y: [10, 0, 20, 10] },
+            { ease: "easeInOut", repeat: 19, duration: 5, delay: 0.6 },
+         ],
       ])
       rightDesignAnimate([
          [rightDesignScope.current, { opacity: 1 }, { duration: 0.6, delay: 1.8 }],
@@ -38,6 +43,11 @@ export default function Hero() {
             rightPointerScope.current,
             { x: 0, y: [0, 20, 10] },
             { duration: 0.6, ease: "easeInOut" },
+         ],
+         [
+            rightPointerScope.current,
+            { x: [0, -10, 10, 0], y: [10, 0, 20, 10] },
+            { ease: "easeInOut", repeat: 19, duration: 5, delay: 0.6 },
          ],
       ])
    })
@@ -88,12 +98,15 @@ export default function Hero() {
 
          <div className="container px-5 mx-auto">
             <div className="flex justify-center mx-auto">
-               <div className="inline-flex py-1 px-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full text-neutral-950 font-semibold">
+               <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+                  className="inline-flex py-1 px-3 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full text-neutral-950 font-semibold">
                   $7.5M seed round raised
-               </div>
+               </motion.div>
             </div>
             <motion.div
-               animate={{ opacity: [0, 1] }}
+               animate={{ opacity: [0, 0.2, 1], transition: { duration: 2 } }}
                className="text-6xl md:text-7xl md:max-w-3xl xl:max-w-5xl xl:text-8xl font-medium text-center mt-6 mx-auto max-w-4xl">
                Impactful design,{" "}
                <span className="inline-flex items-center">
@@ -113,22 +126,26 @@ export default function Hero() {
                Design tools shouldn&apos;t slow you down. Layers combines powerful features with an
                intuitive interface that keeps you in your creative flow
             </TextAnimate>
-            <form
-               action=""
-               className="flex justify-between border border-white/15 rounded-full p-2 px-4 mt-8 gap-4 mx-auto max-w-2xl">
-               <input
-                  type="email"
-                  placeholder="Enter your email"
-                  autoComplete="off"
-                  className="bg-transparent px-4 w-full active:border-0 focus:border-0 focus:outline-none focus:ring-0 focus:bg-transparent text-white/50 placeholder:text-white/50 md:flex-1"
-               />
-               <Button
-                  type="submit"
-                  className="whitespace-nowrap"
-                  size={"sm"}>
-                  Sign Up
-               </Button>
-            </form>
+            <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0, transition: { duration: 1, ease: "easeInOut" } }}>
+               <form
+                  action=""
+                  className="flex justify-between border border-white/15 rounded-full p-2 px-4 mt-8 gap-4 mx-auto max-w-2xl">
+                  <input
+                     type="email"
+                     placeholder="Enter your email"
+                     autoComplete="off"
+                     className="bg-transparent px-4 w-full active:border-0 focus:border-0 focus:outline-none focus:ring-0 focus:bg-transparent text-white/50 placeholder:text-white/50 md:flex-1"
+                  />
+                  <Button
+                     type="submit"
+                     className="whitespace-nowrap"
+                     size={"sm"}>
+                     Sign Up
+                  </Button>
+               </form>
+            </motion.div>
 
             <LogoTicker />
          </div>

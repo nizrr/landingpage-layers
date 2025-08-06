@@ -6,10 +6,15 @@ import { useState } from "react"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { motion, AnimatePresence } from "motion/react"
+import { ShimmerButton } from "@/components/magicui/shimmer-button"
 const navLinks = [
    {
       label: "Home",
       href: "#",
+   },
+   {
+      label: "Introducing",
+      href: "#introducing",
    },
    {
       label: "Features",
@@ -30,7 +35,10 @@ export default function Navbar() {
       <>
          <section className="py-4 lg:py-8 px-5 fixed w-full top-0 z-50">
             <div className="container max-w-5xl mx-auto">
-               <div className="border border-white/15 rounded-3xl md:rounded-full backdrop-blur-sm bg-neutral-950/70">
+               <motion.div
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1, transition: { duration: 1, ease: "easeInOut" } }}
+                  className="border border-white/15 rounded-3xl md:rounded-full backdrop-blur-sm bg-neutral-950/70">
                   <div className="grid grid-cols-2 lg:grid-cols-3 p-2 px-4 items-center">
                      <div>
                         <Image
@@ -40,13 +48,24 @@ export default function Navbar() {
                      </div>
                      <div className="hidden lg:flex justify-center items-center">
                         <nav className="flex gap-6 font-medium">
-                           {navLinks.map(link => (
-                              <a
-                                 key={link.label}
-                                 href={link.href}
-                                 className="text-white/80 hover:text-white">
-                                 {link.label}
-                              </a>
+                           {navLinks.map((link, index) => (
+                              <motion.div
+                                 key={index}
+                                 initial={{ opacity: 0 }}
+                                 animate={{
+                                    opacity: 1,
+                                    transition: {
+                                       delay: index * 0.4,
+                                       duration: 0.7,
+                                       ease: "easeInOut",
+                                    },
+                                 }}>
+                                 <Link
+                                    href={link.href}
+                                    className="text-white/80 hover:text-white">
+                                    {link.label}
+                                 </Link>
+                              </motion.div>
                            ))}
                         </nav>
                      </div>
@@ -89,12 +108,7 @@ export default function Navbar() {
                               )}></line>
                         </svg>
 
-                        <Button
-                           size={"lg"}
-                           variant={"outline"}
-                           className="hidden md:block">
-                           Log In
-                        </Button>
+                        <ShimmerButton className="hidden md:block">Log In</ShimmerButton>
                         <Button
                            size={"lg"}
                            className="hidden md:block">
@@ -134,7 +148,7 @@ export default function Navbar() {
                         </motion.div>
                      )}
                   </AnimatePresence>
-               </div>
+               </motion.div>
             </div>
          </section>
          <div className="pb-[52px] md:pb-[64px]"></div>
